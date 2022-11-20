@@ -1,0 +1,8 @@
+venv/**
+keys/**
+results/**
+__pycache__/**
+*.log
+*.txt
+collector copy.py
+!requirements.txt
