@@ -96,7 +96,8 @@ class MacCollector:
             'username': self.username,
             'port' : self.port,
             'key_file': key_path,
-            'allow_agent': True
+            'allow_agent': True,
+            'conn_timeout': 5
         }
         self.get_data()
         self.parse_data()
