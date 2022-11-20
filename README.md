@@ -19,5 +19,5 @@ pip install -U -r requirements.txt
 cd mac-collector
 source bin/activate
 python collector.py -h
-python collector.py --user admin --key /path/to/ssh.key --hosts 192.168.1.1:22 --type routeros
+python collector.py --user admin --key /path/to/ssh.key --hosts 192.168.1.1:22 --type mikrotik_routeros
 ```
