@@ -95,7 +95,7 @@ class MacCollector:
             'host':   self.hostname,
             'username': self.username,
             'port' : self.port,
-            # 'key_file': key_path,
+            'key_file': key_path,
             'allow_agent': True
         }
         self.get_data()
