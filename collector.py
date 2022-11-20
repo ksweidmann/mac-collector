@@ -97,8 +97,7 @@ class MacCollector:
             'port' : self.port,
             'key_file': key_path,
             'allow_agent': True,
-            'conn_timeout': 5,
-            'read_timeout': 60
+            'conn_timeout': 5
         }
         self.get_data()
         self.parse_data()
@@ -129,7 +128,7 @@ class MacCollector:
         
         for cmd in commands[self.os]:
             log.info('Sending command "%s"' % cmd)
-            self.data += device.send_command(cmd)
+            self.data += device.send_command(cmd, read_timeout=60)
         log.info('Host %s successful collected' % self.hostname)
 
     def parse_data(self):
