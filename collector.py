@@ -124,7 +124,6 @@ class MacCollector:
         for cmd in commands[self.os]:
             log.info('Sending command "%s"' % cmd)
             self.data += device.send_command(cmd)
-        print(self.data)
         log.info('Host %s successful collected' % self.hostname)
 
     def parse_data(self):
