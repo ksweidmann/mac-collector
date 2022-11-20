@@ -2,7 +2,7 @@ import logging
 import re
 import datetime
 import json
-import errno
+import paramiko
 import argumet_parser
 
 from netmiko import ConnectHandler
@@ -119,7 +119,11 @@ class MacCollector:
         }
 
         log.info('Trying connect to %s' % self.hostname)
-        device = ConnectHandler(**self.conn_data)
+        try:
+            device = ConnectHandler(**self.conn_data)
+        except paramiko.ssh_exception.SSHException:
+            self.conn_data['disabled_algorithms '] = {'pubkeys': ['rsa-sha2-256', 'rsa-sha2-512']}
+            device = ConnectHandler(**self.conn_data)
         
         for cmd in commands[self.os]:
             log.info('Sending command "%s"' % cmd)
