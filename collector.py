@@ -123,7 +123,7 @@ class MacCollector:
         try:
             device = ConnectHandler(**self.conn_data)
         except paramiko.ssh_exception.SSHException:
-            self.conn_data['disabled_algorithms '] = {'pubkeys': ['rsa-sha2-256', 'rsa-sha2-512']}
+            self.conn_data['disabled_algorithms'] = {'pubkeys': ['rsa-sha2-256', 'rsa-sha2-512']}
             device = ConnectHandler(**self.conn_data)
         
         for cmd in commands[self.os]:
